@@ -30,9 +30,15 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        doneButtonLabel.layer.cornerRadius = doneButtonLabel.frame.size.height/2;
+//
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         noteToSaveLabel.layer.cornerRadius = 10;
         picToSave.clipsToBounds = true;
@@ -72,13 +78,15 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         
         //doneButtonLabel.setBorderWidth(3.0, for: .normal)
+        //doneButtonLabel.layer.cornerRadius = doneButtonLabel.frame.size.height/2;
         doneButtonLabel.setBorderColor(borderColorPressed, for: .highlighted)
-        doneButtonLabel.setCornerRadius(25.0)
+        //doneButtonLabel.setCornerRadius(25.0)
         doneButtonLabel.setBackgroundColor(backgroundColorPressed, for: .highlighted)
         doneButtonLabel.setBackgroundColor(backgroundColor)
         doneButtonLabel.setBorderColor(borderColor)
         doneButtonLabel.setBorderWidth(2.5, for: .normal, animated: true, animationDuration: 0.5)
         doneButtonLabel.setBorderWidth(4.5, for: .highlighted, animated: false)
+        doneButtonLabel.setCornerRadius(doneButtonLabel.frame.size.height/2)
         
         
         view.addSubview(doneButtonLabel)
