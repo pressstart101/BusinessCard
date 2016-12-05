@@ -8,19 +8,28 @@
 
 import UIKit
 
-class FormViewController: UIViewController {
+class FormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cameraButtonLabel: SimpleButton!
     @IBOutlet weak var libraryButtonLabel: SimpleButton!
     @IBOutlet weak var doneButtonLabel: SimpleButton!
+    @IBOutlet weak var picToSave: UIImageView!
     
     let backgroundColor = UIColor(red: 179/255, green: 204/255, blue: 230/255, alpha: 1)
     let borderColor = UIColor(red: 140/255, green: 177/255, blue: 217/255, alpha: 1)
     let backgroundColorPressed = UIColor(red: 121/255, green: 164/255, blue: 210/255, alpha: 1)
     let borderColorPressed = UIColor(red: 64/255, green: 125/255, blue: 191/255, alpha: 1)
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        picToSave.clipsToBounds = true;
+        picToSave.layer.cornerRadius = 20;
+        picToSave.layer.cornerRadius = picToSave.frame.size.height/2;
         //****button setup
         //http://aloco.github.io/SimpleButton/swift_output/
         //https://github.com/aloco/SimpleButton
@@ -69,18 +78,40 @@ class FormViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    
+    @IBAction func libraryButtonAction(_ sender: SimpleButton) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
-
     
-    
-    
-    
-    @IBAction func cameraButtonAction(_ sender: UIButton) {
+    @IBAction func cameraButtonAction(_ sender: SimpleButton) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        picToSave.image = image
+        self.dismiss(animated: true, completion: nil);
+    }
+    
+    
+    @IBAction func doneButtonAction(_ sender: SimpleButton) {
+        let imageData = UIImageJPEGRepresentation(picToSave.image!, 0.6)
+        let compressedJPEGImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
+    }
 
 }
 
