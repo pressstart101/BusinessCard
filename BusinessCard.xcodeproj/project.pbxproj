@@ -12,9 +12,16 @@
 		650ACD241DF516DB00F3CFEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650ACD221DF516DB00F3CFEC /* Main.storyboard */; };
 		650ACD261DF516DB00F3CFEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650ACD251DF516DB00F3CFEC /* Assets.xcassets */; };
 		650ACD291DF516DB00F3CFEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650ACD271DF516DB00F3CFEC /* LaunchScreen.storyboard */; };
+		650ACD391DF5425100F3CFEC /* BusinessCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650ACD381DF5425100F3CFEC /* BusinessCardViewController.swift */; };
+		65444B861DF5475200E124C8 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65444B851DF5475200E124C8 /* SimpleButton.swift */; };
+		65444B881DF547BB00E124C8 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65444B871DF547BB00E124C8 /* Button.swift */; };
+		65444B8B1DF5495E00E124C8 /* SimpleButtonControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65444B891DF5495E00E124C8 /* SimpleButtonControlState.swift */; };
+		65444B8C1DF5495E00E124C8 /* SimpleButtonStateChangeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65444B8A1DF5495E00E124C8 /* SimpleButtonStateChangeValue.swift */; };
+		8870B4A0212975C5347AE90F /* Pods_BusinessCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78133F4216F295935F962B88 /* Pods_BusinessCard.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		575A6EFCD7CA9BCB899B891E /* Pods-BusinessCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinessCard.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusinessCard/Pods-BusinessCard.release.xcconfig"; sourceTree = "<group>"; };
 		650ACD1B1DF516DB00F3CFEC /* BusinessCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		650ACD1E1DF516DB00F3CFEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		650ACD201DF516DB00F3CFEC /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,14 @@
 		650ACD251DF516DB00F3CFEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		650ACD281DF516DB00F3CFEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		650ACD2A1DF516DB00F3CFEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650ACD381DF5425100F3CFEC /* BusinessCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardViewController.swift; sourceTree = "<group>"; };
+		65444B851DF5475200E124C8 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleButton.swift; path = "../../../SimpleButton-master/SimpleButton/SimpleButton.swift"; sourceTree = "<group>"; };
+		65444B871DF547BB00E124C8 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		65444B891DF5495E00E124C8 /* SimpleButtonControlState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleButtonControlState.swift; path = "../../../SimpleButton-master/SimpleButton/SimpleButtonControlState.swift"; sourceTree = "<group>"; };
+		65444B8A1DF5495E00E124C8 /* SimpleButtonStateChangeValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleButtonStateChangeValue.swift; path = "../../../SimpleButton-master/SimpleButton/SimpleButtonStateChangeValue.swift"; sourceTree = "<group>"; };
+		65444B8D1DF549C500E124C8 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleButton.h; path = "../../../SimpleButton-master/SimpleButton/SimpleButton.h"; sourceTree = "<group>"; };
+		78133F4216F295935F962B88 /* Pods_BusinessCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusinessCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6EAF687E074A127ABC05BEC /* Pods-BusinessCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinessCard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusinessCard/Pods-BusinessCard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +44,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8870B4A0212975C5347AE90F /* Pods_BusinessCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0882399D53F91BD118AE145D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6EAF687E074A127ABC05BEC /* Pods-BusinessCard.debug.xcconfig */,
+				575A6EFCD7CA9BCB899B891E /* Pods-BusinessCard.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		650ACD121DF516DB00F3CFEC = {
 			isa = PBXGroup;
 			children = (
 				650ACD1D1DF516DB00F3CFEC /* BusinessCard */,
 				650ACD1C1DF516DB00F3CFEC /* Products */,
+				0882399D53F91BD118AE145D /* Pods */,
+				F0F397C8F514FD5D3C4C2BD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +81,28 @@
 		650ACD1D1DF516DB00F3CFEC /* BusinessCard */ = {
 			isa = PBXGroup;
 			children = (
+				65444B8D1DF549C500E124C8 /* SimpleButton.h */,
+				65444B891DF5495E00E124C8 /* SimpleButtonControlState.swift */,
+				65444B8A1DF5495E00E124C8 /* SimpleButtonStateChangeValue.swift */,
+				65444B851DF5475200E124C8 /* SimpleButton.swift */,
+				65444B871DF547BB00E124C8 /* Button.swift */,
 				650ACD1E1DF516DB00F3CFEC /* AppDelegate.swift */,
 				650ACD201DF516DB00F3CFEC /* FormViewController.swift */,
+				650ACD381DF5425100F3CFEC /* BusinessCardViewController.swift */,
 				650ACD221DF516DB00F3CFEC /* Main.storyboard */,
 				650ACD251DF516DB00F3CFEC /* Assets.xcassets */,
 				650ACD271DF516DB00F3CFEC /* LaunchScreen.storyboard */,
 				650ACD2A1DF516DB00F3CFEC /* Info.plist */,
 			);
 			path = BusinessCard;
+			sourceTree = "<group>";
+		};
+		F0F397C8F514FD5D3C4C2BD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78133F4216F295935F962B88 /* Pods_BusinessCard.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 650ACD2D1DF516DB00F3CFEC /* Build configuration list for PBXNativeTarget "BusinessCard" */;
 			buildPhases = (
+				9CF88F2362DBEBAB80554769 /* [CP] Check Pods Manifest.lock */,
 				650ACD171DF516DB00F3CFEC /* Sources */,
 				650ACD181DF516DB00F3CFEC /* Frameworks */,
 				650ACD191DF516DB00F3CFEC /* Resources */,
+				598A546FA7267F7C7027EF5B /* [CP] Embed Pods Frameworks */,
+				94C1E41DEC440142F2807624 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,13 +176,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		598A546FA7267F7C7027EF5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusinessCard/Pods-BusinessCard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94C1E41DEC440142F2807624 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusinessCard/Pods-BusinessCard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CF88F2362DBEBAB80554769 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		650ACD171DF516DB00F3CFEC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65444B8C1DF5495E00E124C8 /* SimpleButtonStateChangeValue.swift in Sources */,
+				65444B881DF547BB00E124C8 /* Button.swift in Sources */,
+				650ACD391DF5425100F3CFEC /* BusinessCardViewController.swift in Sources */,
 				650ACD211DF516DB00F3CFEC /* FormViewController.swift in Sources */,
+				65444B8B1DF5495E00E124C8 /* SimpleButtonControlState.swift in Sources */,
 				650ACD1F1DF516DB00F3CFEC /* AppDelegate.swift in Sources */,
+				65444B861DF5475200E124C8 /* SimpleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +279,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -232,6 +330,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -259,6 +358,7 @@
 		};
 		650ACD2E1DF516DB00F3CFEC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6EAF687E074A127ABC05BEC /* Pods-BusinessCard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XX4D6N8843;
@@ -272,6 +372,7 @@
 		};
 		650ACD2F1DF516DB00F3CFEC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 575A6EFCD7CA9BCB899B891E /* Pods-BusinessCard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XX4D6N8843;
