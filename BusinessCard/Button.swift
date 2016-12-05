@@ -19,3 +19,4 @@ class PrimaryButton: SimpleButton {
         setTitleColor(UIColor.white, for: .normal)
     }
 }
+

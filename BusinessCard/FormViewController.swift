@@ -10,6 +10,14 @@ import UIKit
 
 class FormViewController: UIViewController {
     @IBOutlet weak var cameraButtonLabel: SimpleButton!
+    @IBOutlet weak var libraryButtonLabel: SimpleButton!
+    @IBOutlet weak var doneButtonLabel: SimpleButton!
+    
+    let backgroundColor = UIColor(red: 179/255, green: 204/255, blue: 230/255, alpha: 1)
+    let borderColor = UIColor(red: 140/255, green: 177/255, blue: 217/255, alpha: 1)
+    let backgroundColorPressed = UIColor(red: 121/255, green: 164/255, blue: 210/255, alpha: 1)
+    let borderColorPressed = UIColor(red: 64/255, green: 125/255, blue: 191/255, alpha: 1)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,19 +26,45 @@ class FormViewController: UIViewController {
         //https://github.com/aloco/SimpleButton
         //****
         
+        cameraButtonLabel.setBorderWidth(1.0, for: .normal)
+        cameraButtonLabel.setBorderColor(borderColorPressed, for: .highlighted)
+        cameraButtonLabel.setCornerRadius(8.0)
+        cameraButtonLabel.setBackgroundColor(backgroundColorPressed, for: .highlighted)
+        cameraButtonLabel.setBackgroundColor(backgroundColor, for: .normal)
+        cameraButtonLabel.setBorderColor(borderColor)
+        cameraButtonLabel.setBorderWidth(1.5, for: .normal, animated: true, animationDuration: 0.2)
+        cameraButtonLabel.setBorderWidth(3.0, for: .highlighted, animated: false)
+
         
-        cameraButtonLabel.setBorderWidth(2.0, for: .normal)
-        cameraButtonLabel.setBorderColor(UIColor.darkGray, for: .highlighted)
-        cameraButtonLabel.setCornerRadius(10.0)
-        //cameraButtonLabel.setTitleImageSpacing(20.0)
-        cameraButtonLabel.setShadowColor(UIColor.gray, for: .application)
         view.addSubview(cameraButtonLabel)
-        cameraButtonLabel.setBackgroundColor(UIColor.blue, for: .highlighted)
-        cameraButtonLabel.setBackgroundColor(UIColor.cyan)
-        cameraButtonLabel.setBorderColor(UIColor.gray)
+
         
         
         
+        libraryButtonLabel.setBorderWidth(1.0, for: .normal)
+        libraryButtonLabel.setBorderColor(borderColorPressed, for: .highlighted)
+        libraryButtonLabel.setCornerRadius(8.0)
+        libraryButtonLabel.setBackgroundColor(backgroundColorPressed, for: .highlighted)
+        libraryButtonLabel.setBackgroundColor(backgroundColor)
+        libraryButtonLabel.setBorderColor(borderColor)
+        libraryButtonLabel.setBorderWidth(1.5, for: .normal, animated: true, animationDuration: 0.2)
+        libraryButtonLabel.setBorderWidth(3.0, for: .highlighted, animated: false)
+        
+        
+        view.addSubview(libraryButtonLabel)
+        
+        
+        //doneButtonLabel.setBorderWidth(3.0, for: .normal)
+        doneButtonLabel.setBorderColor(borderColorPressed, for: .highlighted)
+        doneButtonLabel.setCornerRadius(25.0)
+        doneButtonLabel.setBackgroundColor(backgroundColorPressed, for: .highlighted)
+        doneButtonLabel.setBackgroundColor(backgroundColor)
+        doneButtonLabel.setBorderColor(borderColor)
+        doneButtonLabel.setBorderWidth(2.5, for: .normal, animated: true, animationDuration: 0.5)
+        doneButtonLabel.setBorderWidth(4.5, for: .highlighted, animated: false)
+        
+        
+        view.addSubview(doneButtonLabel)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
