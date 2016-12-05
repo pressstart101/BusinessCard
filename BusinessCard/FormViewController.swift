@@ -20,8 +20,14 @@ class FormViewController: UIViewController {
         
         
         cameraButtonLabel.setBorderWidth(2.0, for: .normal)
-        cameraButtonLabel.setBorderColor(UIColor.red, for: .highlighted)
+        cameraButtonLabel.setBorderColor(UIColor.darkGray, for: .highlighted)
+        cameraButtonLabel.setCornerRadius(10.0)
+        //cameraButtonLabel.setTitleImageSpacing(20.0)
+        cameraButtonLabel.setShadowColor(UIColor.gray, for: .application)
         view.addSubview(cameraButtonLabel)
+        cameraButtonLabel.setBackgroundColor(UIColor.blue, for: .highlighted)
+        cameraButtonLabel.setBackgroundColor(UIColor.cyan)
+        cameraButtonLabel.setBorderColor(UIColor.gray)
         
         
         
