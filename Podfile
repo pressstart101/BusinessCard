@@ -6,5 +6,5 @@ target 'BusinessCard' do
   use_frameworks!
 
   # Pods for BusinessCard
-'SwiftHEXColors'
+pod 'IQKeyboardManagerSwift'
 end

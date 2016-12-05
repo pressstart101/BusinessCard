@@ -33,6 +33,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         noteToSaveLabel.layer.cornerRadius = 10;
         picToSave.clipsToBounds = true;
         picToSave.layer.cornerRadius = 20;
@@ -85,7 +86,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    
+
     
     
     @IBAction func libraryButtonAction(_ sender: SimpleButton) {
@@ -119,6 +120,16 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let compressedJPEGImage = UIImage(data: imageData!)
         UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
     }
+    
+    ///////////////////////////////////////////////////////////
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        var destViewController : BusinessCardViewController = segue.destination as! BusinessCardViewController
+//        destViewController.nameText = nameToSaveLabel.text!
+//        
+//    }
+    
+    
 
 }
 
