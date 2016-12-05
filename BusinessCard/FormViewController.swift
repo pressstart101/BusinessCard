@@ -13,6 +13,13 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var libraryButtonLabel: SimpleButton!
     @IBOutlet weak var doneButtonLabel: SimpleButton!
     @IBOutlet weak var picToSave: UIImageView!
+    @IBOutlet weak var nameToSaveLabel: UITextField!
+    @IBOutlet weak var emailToSaveLabel: UITextField!
+    @IBOutlet weak var phoneToSaveLabel: UITextField!
+    @IBOutlet weak var websiteToSaveLabel: UITextField!
+    @IBOutlet weak var noteToSaveLabel: UITextView!
+    
+    
     
     let backgroundColor = UIColor(red: 179/255, green: 204/255, blue: 230/255, alpha: 1)
     let borderColor = UIColor(red: 140/255, green: 177/255, blue: 217/255, alpha: 1)
@@ -26,7 +33,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        noteToSaveLabel.layer.cornerRadius = 10;
         picToSave.clipsToBounds = true;
         picToSave.layer.cornerRadius = 20;
         picToSave.layer.cornerRadius = picToSave.frame.size.height/2;

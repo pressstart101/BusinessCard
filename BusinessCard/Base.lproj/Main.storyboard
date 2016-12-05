@@ -115,8 +115,13 @@
                     <connections>
                         <outlet property="cameraButtonLabel" destination="shB-Ms-UOC" id="FxT-yi-ZYc"/>
                         <outlet property="doneButtonLabel" destination="QyP-zS-uvN" id="NDc-tV-yUP"/>
+                        <outlet property="emailToSaveLabel" destination="hFb-d9-pIU" id="mBy-jT-sop"/>
                         <outlet property="libraryButtonLabel" destination="4X4-Jr-Nfa" id="N7s-Od-0k4"/>
+                        <outlet property="nameToSaveLabel" destination="uMM-Cv-Xbg" id="sbX-iG-udR"/>
+                        <outlet property="noteToSaveLabel" destination="u82-CU-5Kb" id="QVb-wm-lFW"/>
+                        <outlet property="phoneToSaveLabel" destination="Z61-9W-wwv" id="l3f-aX-MYT"/>
                         <outlet property="picToSave" destination="jL2-GO-8EC" id="tju-Ro-Ijz"/>
+                        <outlet property="websiteToSaveLabel" destination="PX2-4X-kMk" id="abX-Yf-9hW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
