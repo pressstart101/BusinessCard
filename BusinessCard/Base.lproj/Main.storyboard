@@ -140,8 +140,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p2u-dv-gby">
-                                <rect key="frame" x="53" y="64" width="240" height="128"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="buisnessCardBackground" translatesAutoresizingMaskIntoConstraints="NO" id="GAe-Xl-Q4E">
+                                <rect key="frame" x="-1" y="64" width="376" height="284"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kEi-Mx-xnn">
+                                <rect key="frame" x="103" y="151" width="168" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </imageView>
@@ -149,12 +153,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="backgroundImage" destination="p2u-dv-gby" id="Byb-Ss-9Yy"/>
+                        <outlet property="profilePicLabel" destination="kEi-Mx-xnn" id="SvI-k1-pPE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZX-K9-7oG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="140"/>
+            <point key="canvasLocation" x="1772" y="139.880059970015"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nec-uM-gi7">
@@ -176,6 +180,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="buisnessCardBackground" width="381" height="282"/>
         <image name="placeholder" width="428" height="430"/>
     </resources>
 </document>
