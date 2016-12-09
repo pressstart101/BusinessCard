@@ -127,6 +127,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let imageData = UIImageJPEGRepresentation(picToSave.image!, 0.6)
         let compressedJPEGImage = UIImage(data: imageData!)
         UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
+        ///!!!add not to save placeholder to gallery
     }
     
     ///////////////////////////////////////////////////////////
