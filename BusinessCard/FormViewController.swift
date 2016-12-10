@@ -58,6 +58,9 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         cameraButtonLabel.setBorderWidth(1.5, for: .normal, animated: true, animationDuration: 0.2)
         cameraButtonLabel.setBorderWidth(3.0, for: .highlighted, animated: false)
 
+        cameraButtonLabel.setShadowColor(UIColor.gray)
+        cameraButtonLabel.setShadowRadius(5.0)
+        cameraButtonLabel.setShadowOpacity(5.0)
         
         view.addSubview(cameraButtonLabel)
 
@@ -73,6 +76,10 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         libraryButtonLabel.setBorderWidth(1.5, for: .normal, animated: true, animationDuration: 0.2)
         libraryButtonLabel.setBorderWidth(3.0, for: .highlighted, animated: false)
         
+        libraryButtonLabel.setShadowColor(UIColor.gray)
+        libraryButtonLabel.setShadowRadius(5.0)
+        libraryButtonLabel.setShadowOpacity(5.0)
+        //libraryButtonLabel.setShadowOffset(20.0 as! CGSize)
         
         view.addSubview(libraryButtonLabel)
         
@@ -88,6 +95,9 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         doneButtonLabel.setBorderWidth(4.5, for: .highlighted, animated: false)
         doneButtonLabel.setCornerRadius(doneButtonLabel.frame.size.height/2)
         
+        doneButtonLabel.setShadowColor(UIColor.gray)
+        doneButtonLabel.setShadowRadius(5.0)
+        doneButtonLabel.setShadowOpacity(5.0)
         
         view.addSubview(doneButtonLabel)
         
@@ -120,20 +130,23 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         picToSave.image = image
         self.dismiss(animated: true, completion: nil);
+        let imageData = UIImageJPEGRepresentation(picToSave.image!, 0.6)
+        let compressedJPEGImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
     }
     
     
     @IBAction func doneButtonAction(_ sender: SimpleButton) {
-        let imageData = UIImageJPEGRepresentation(picToSave.image!, 0.6)
-        let compressedJPEGImage = UIImage(data: imageData!)
-        UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
+//        let imageData = UIImageJPEGRepresentation(picToSave.image!, 0.6)
+//        let compressedJPEGImage = UIImage(data: imageData!)
+//        UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
         ///!!!add not to save placeholder to gallery
     }
     
     ///////////////////////////////////////////////////////////
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destViewController : BusinessCardViewController = segue.destination as! BusinessCardViewController
+        let destViewController : BusinessCardViewController = segue.destination as! BusinessCardViewController
         destViewController.thePic = picToSave.image!
         
     }
