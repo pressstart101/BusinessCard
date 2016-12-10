@@ -38,7 +38,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u82-CU-5Kb">
                                 <rect key="frame" x="30" y="522" width="315" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -69,14 +69,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload picture:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6b-oj-XmP">
-                                <rect key="frame" x="30" y="320" width="118" height="21"/>
+                                <rect key="frame" x="14" y="638" width="118" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shB-Ms-UOC" customClass="SimpleButton" customModule="BusinessCard" customModuleProvider="target">
-                                <rect key="frame" x="156" y="296" width="93" height="45"/>
+                                <rect key="frame" x="148" y="295" width="95" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="Camera">
@@ -87,7 +87,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X4-Jr-Nfa" customClass="SimpleButton" customModule="BusinessCard" customModuleProvider="target">
-                                <rect key="frame" x="252" y="296" width="93" height="45"/>
+                                <rect key="frame" x="250" y="295" width="95" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="Library">
@@ -108,8 +108,19 @@
                                 <rect key="frame" x="77" y="72" width="220" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8F-s3-U0t" customClass="SimpleButton" customModule="BusinessCard" customModuleProvider="target">
+                                <rect key="frame" x="30" y="296" width="129" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9457707405090332" green="0.37006039644877703" blue="0.22769590356668207" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Upload photo">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VOr-F0-9ok"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="LDO-RN-0nI"/>
                     <connections>
@@ -122,6 +133,7 @@
                         <outlet property="noteToSaveLabel" destination="u82-CU-5Kb" id="QVb-wm-lFW"/>
                         <outlet property="phoneToSaveLabel" destination="Z61-9W-wwv" id="l3f-aX-MYT"/>
                         <outlet property="picToSave" destination="jL2-GO-8EC" id="tju-Ro-Ijz"/>
+                        <outlet property="upLabel" destination="f8F-s3-U0t" id="JtQ-1n-aKm"/>
                         <outlet property="uploadPictureLabel" destination="I6b-oj-XmP" id="3dq-hN-LYG"/>
                         <outlet property="websiteToSaveLabel" destination="PX2-4X-kMk" id="abX-Yf-9hW"/>
                     </connections>
@@ -240,7 +252,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HlH-fv-RnC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mr7-an-1QD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mr7-an-1QD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

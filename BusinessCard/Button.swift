@@ -28,6 +28,13 @@ struct Colors{
     static let borderColorPressed = UIColor(red: 45/255, green: 147/255, blue: 210/255, alpha: 1)
     
     static let iconsColor = UIColor(red: 45/255, green: 147/255, blue: 210/255, alpha: 1)
+    
+    //Pale
+    static let backgroundColorPale = UIColor(red: 192/255, green: 223/255, blue: 242/255, alpha: 1)
+    static let borderColorPale = UIColor(red: 149/255, green: 201/255, blue: 233/255, alpha: 1)
+    static let backgroundColorPressedPale = UIColor(red: 128/255, green: 190/255, blue: 229/255, alpha: 1)
+    static let borderColorPressedPale = UIColor(red: 86/255, green: 169/255, blue: 220/255, alpha: 1)
+    
 }
 
 
@@ -52,19 +59,19 @@ extension UIFont {
     }
     
     class func medium() -> UIFont {
-        return UIFont(name: "PingFangSC-Regular", size: 16)!
+        return UIFont(name: "PingFangSC-Regular", size: 20)!
     }
     
     class func small() -> UIFont {
-        return UIFont(name: "PingFangSC-Regular", size: 14)!
+        return UIFont(name: "PingFangSC-Regular", size: 18)!
     }
     
     class func thin() -> UIFont {
-        return UIFont(name: "PingFangSC-Thin", size: 14)!
+        return UIFont(name: "PingFangSC-Thin", size: 18)!
     }
     
     class func extraLarge() -> UIFont {
-        return UIFont(name: "PingFangSC-Semibold", size: 40)!
+        return UIFont(name: "PingFangSC-Semibold", size: 45)!
     }
 }
 

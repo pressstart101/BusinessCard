@@ -22,7 +22,9 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var noteLabel: UILabel!
     
     
+    @IBOutlet weak var upLabel: SimpleButton!
     
+
 
 
     override func didReceiveMemoryWarning() {
@@ -41,10 +43,18 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         phoneToSaveLabel.addTarget(self, action: #selector(textField(_:shouldChangeCharactersIn:replacementString:)), for: .editingChanged)
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        upLabel.isHidden = false
+        cameraButtonLabel.isHidden = true
+        libraryButtonLabel.isHidden = true
+    }
 
     func setUpFormView(){
         self.hideKeyboardWhenTappedAround()
         
+        cameraButtonLabel.isHidden = true
+        libraryButtonLabel.isHidden = true
         noteToSaveLabel.layer.cornerRadius = 10;
         picToSave.clipsToBounds = true;
         picToSave.layer.cornerRadius = 20;
@@ -56,12 +66,29 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //https://github.com/aloco/SimpleButton
         //****
         
+        
+        upLabel.setBorderWidth(1.0, for: .normal)
+        upLabel.setBorderColor(Colors.borderColorPressed, for: .highlighted)
+        upLabel.setCornerRadius(8.0)
+        upLabel.setBackgroundColor(Colors.backgroundColorPressed, for: .highlighted)
+        upLabel.setBackgroundColor(Colors.backgroundColor, for: .normal)
+        upLabel.setBorderColor(Colors.borderColor)
+        upLabel.setBorderWidth(1.5, for: .normal, animated: true, animationDuration: 0.2)
+        upLabel.setBorderWidth(2.0, for: .highlighted, animated: false)
+        
+        upLabel.setShadowColor(UIColor.gray)
+        upLabel.setShadowRadius(5.0)
+        upLabel.setShadowOpacity(5.0)
+        upLabel.titleLabel?.font = UIFont.medium()
+        view.addSubview(upLabel)
+        
+        
         cameraButtonLabel.setBorderWidth(1.0, for: .normal)
-        cameraButtonLabel.setBorderColor(Colors.borderColorPressed, for: .highlighted)
+        cameraButtonLabel.setBorderColor(Colors.borderColorPressedPale, for: .highlighted)
         cameraButtonLabel.setCornerRadius(8.0)
-        cameraButtonLabel.setBackgroundColor(Colors.backgroundColorPressed, for: .highlighted)
-        cameraButtonLabel.setBackgroundColor(Colors.backgroundColor, for: .normal)
-        cameraButtonLabel.setBorderColor(Colors.borderColor)
+        cameraButtonLabel.setBackgroundColor(Colors.backgroundColorPressedPale, for: .highlighted)
+        cameraButtonLabel.setBackgroundColor(Colors.backgroundColorPale, for: .normal)
+        cameraButtonLabel.setBorderColor(Colors.borderColorPale)
         cameraButtonLabel.setBorderWidth(1.5, for: .normal, animated: true, animationDuration: 0.2)
         cameraButtonLabel.setBorderWidth(2.0, for: .highlighted, animated: false)
         
@@ -75,11 +102,11 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         
         libraryButtonLabel.setBorderWidth(1.0, for: .normal)
-        libraryButtonLabel.setBorderColor(Colors.borderColorPressed, for: .highlighted)
+        libraryButtonLabel.setBorderColor(Colors.borderColorPressedPale, for: .highlighted)
         libraryButtonLabel.setCornerRadius(8.0)
-        libraryButtonLabel.setBackgroundColor(Colors.backgroundColorPressed, for: .highlighted)
-        libraryButtonLabel.setBackgroundColor(Colors.backgroundColor)
-        libraryButtonLabel.setBorderColor(Colors.borderColor)
+        libraryButtonLabel.setBackgroundColor(Colors.backgroundColorPressedPale, for: .highlighted)
+        libraryButtonLabel.setBackgroundColor(Colors.backgroundColorPale)
+        libraryButtonLabel.setBorderColor(Colors.borderColorPale)
         libraryButtonLabel.setBorderWidth(1.5, for: .normal, animated: true, animationDuration: 0.2)
         libraryButtonLabel.setBorderWidth(2.0, for: .highlighted, animated: false)
         
@@ -122,6 +149,11 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         websiteToSaveLabel.font = UIFont.small()
     }
     
+    @IBAction func upButton(_ sender: Any) {
+        cameraButtonLabel.isHidden = false
+        libraryButtonLabel.isHidden = false
+        upLabel.isHidden = true
+    }
     
     @IBAction func libraryButtonAction(_ sender: SimpleButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
