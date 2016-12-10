@@ -149,8 +149,14 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destViewController : BusinessCardViewController = segue.destination as! BusinessCardViewController
         destViewController.thePic = picToSave.image!
-        
+        destViewController.emailText = emailToSaveLabel.text!
+        destViewController.phoneText = phoneToSaveLabel.text!
+        destViewController.websiteText = websiteToSaveLabel.text!
+        destViewController.noteText = noteToSaveLabel.text!
+        destViewController.nameText = nameToSaveLabel.text!
     }
+    
+    
     
     
 
