@@ -21,6 +21,17 @@ class PrimaryButton: SimpleButton {
 }
 
 
+struct Colors{
+    static let backgroundColor = UIColor(red: 151/255, green: 203/255, blue: 233/255, alpha: 1)
+    static let borderColor = UIColor(red: 108/255, green: 179/255, blue: 224/255, alpha: 1)
+    static let backgroundColorPressed = UIColor(red: 87/255, green: 168/255, blue: 219/255, alpha: 1)
+    static let borderColorPressed = UIColor(red: 45/255, green: 147/255, blue: 210/255, alpha: 1)
+    
+    static let iconsColor = UIColor(red: 45/255, green: 147/255, blue: 210/255, alpha: 1)
+}
+
+
+
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
@@ -31,6 +42,63 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+
+
+extension UIFont {
+    
+    class func large() -> UIFont {
+        return UIFont(name: "PingFangSC-Regular", size: 20)!
+    }
+    
+    class func medium() -> UIFont {
+        return UIFont(name: "PingFangSC-Regular", size: 16)!
+    }
+    
+    class func small() -> UIFont {
+        return UIFont(name: "PingFangSC-Regular", size: 14)!
+    }
+    
+    class func thin() -> UIFont {
+        return UIFont(name: "PingFangSC-Thin", size: 14)!
+    }
+    
+    class func extraLarge() -> UIFont {
+        return UIFont(name: "PingFangSC-Semibold", size: 40)!
+    }
+}
+
+
+extension CALayer {
+    
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        
+        let border = CALayer()
+        
+        switch edge {
+        case UIRectEdge.top:
+            border.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: thickness)
+            break
+        case UIRectEdge.bottom:
+            border.frame = CGRect.init(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
+            break
+        case UIRectEdge.left:
+            border.frame = CGRect.init(x: 0, y: 0, width: thickness, height: frame.height)
+            break
+        case UIRectEdge.right:
+            border.frame = CGRect.init(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+            break
+        default:
+            break
+        }
+        
+        border.backgroundColor = color.cgColor;
+        
+        self.addSublayer(border)
+    }
+}
+
+
 
 extension UIBezierPath {
     

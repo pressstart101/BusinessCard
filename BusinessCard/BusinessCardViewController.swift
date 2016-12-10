@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 import Font_Awesome_Swift
+import MessageUI
 
-class BusinessCardViewController: UIViewController {
+class BusinessCardViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var profilePicLabel: UIImageView!
     var thePic = UIImage()
     
@@ -31,16 +32,37 @@ class BusinessCardViewController: UIViewController {
     var websiteText = String()
     var noteText = String()
     var nameText = String()
-    let backgroundColor = UIColor(red: 180/255, green: 204/255, blue: 255/255, alpha: 1)
-    let borderColor = UIColor(red: 160/255, green: 177/255, blue: 217/255, alpha: 1)
-    let backgroundColorPressed = UIColor(red: 102/255, green: 150/255, blue: 255/255, alpha: 1)
-    let borderColorPressed = UIColor(red: 80/255, green: 120/255, blue: 255/255, alpha: 1)
+
     
-    
-    let iconsColor = UIColor(red: 80/255, green: 102/255, blue: 255/255, alpha: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpBusinessCardView()
         // Do any additional setup after loading the view, typically from a nib.
+   
+        
+        
+        func draw(_ rect: CGRect) {
+            let aPath = UIBezierPath()
+            
+            aPath.move(to: CGPoint(x:20, y:50))
+            
+            aPath.addLine(to: CGPoint(x:300, y:50))
+            
+            //Keep using the method addLineToPoint until you get to the one where about to close the path
+            
+            aPath.close()
+            
+            //If you want to stroke it with a red color
+            UIColor.red.set()
+            aPath.stroke()
+            //If you want to fill it as well
+            aPath.fill()
+        }
+        
+        
+    }
+    
+    func setUpBusinessCardView(){
         profilePicLabel.clipsToBounds = true;
         profilePicLabel.layer.cornerRadius = 20;
         profilePicLabel.layer.cornerRadius = profilePicLabel.frame.size.height/2;
@@ -51,14 +73,20 @@ class BusinessCardViewController: UIViewController {
         phoneLabel.text = phoneText
         websiteLabel.text = websiteText
         noteLabel.text = noteText
-        nameLabel.text = nameText
+        nameLabel.text = nameText.localizedCapitalized
+        
+        emailLabel.font = UIFont.small()
+        phoneLabel.font = UIFont.small()
+        websiteLabel.font = UIFont.small()
+        noteLabel.font = UIFont.thin()
+        nameLabel.font = UIFont.extraLarge()
         
         
-        sendLabel.setBorderColor(borderColorPressed, for: .highlighted)
+        sendLabel.setBorderColor(Colors.borderColorPressed, for: .highlighted)
         //doneButtonLabel.setCornerRadius(25.0)
-        sendLabel.setBackgroundColor(backgroundColorPressed, for: .highlighted)
-        sendLabel.setBackgroundColor(backgroundColor)
-        sendLabel.setBorderColor(borderColor)
+        sendLabel.setBackgroundColor(Colors.backgroundColorPressed, for: .highlighted)
+        sendLabel.setBackgroundColor(Colors.backgroundColor)
+        sendLabel.setBorderColor(Colors.borderColor)
         sendLabel.setBorderWidth(2.5, for: .normal, animated: true, animationDuration: 0.5)
         sendLabel.setBorderWidth(3.5, for: .highlighted, animated: false)
         sendLabel.setCornerRadius(sendLabel.frame.size.height/2)
@@ -67,15 +95,23 @@ class BusinessCardViewController: UIViewController {
         sendLabel.setShadowRadius(5.0)
         sendLabel.setShadowOpacity(5.0)
         
+        
+        sendLabel.titleLabel?.font = UIFont.large()
         view.addSubview(sendLabel)
         
         
         
-        emailImg.setFAIconWithName(icon: FAType.FAEnvelopeO, textColor: iconsColor, backgroundColor: UIColor.clear)
-        phoneImg.setFAIconWithName(icon: FAType.FAPhone, textColor: iconsColor, backgroundColor: UIColor.clear)
-        websiteImg.setFAIconWithName(icon: FAType.FAGlobe, textColor: iconsColor, backgroundColor: UIColor.clear)
-        noteImg.setFAIconWithName(icon: FAType.FACommentO, textColor: iconsColor, backgroundColor: UIColor.clear)
+        emailImg.setFAIconWithName(icon: FAType.FAEnvelopeO, textColor: Colors.iconsColor, backgroundColor: UIColor.clear)
+        phoneImg.setFAIconWithName(icon: FAType.FAPhone, textColor: Colors.iconsColor, backgroundColor: UIColor.clear)
+        websiteImg.setFAIconWithName(icon: FAType.FAGlobe, textColor: Colors.iconsColor, backgroundColor: UIColor.clear)
+        noteImg.setFAIconWithName(icon: FAType.FACommentO, textColor: Colors.iconsColor, backgroundColor: UIColor.clear)
         
+        
+        
+        emailLabel.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 0.5)
+        phoneLabel.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 0.5)
+        websiteLabel.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 0.5)
+
         /*
          FAType.FAPhone
          FAType.FATwitter
@@ -87,22 +123,57 @@ class BusinessCardViewController: UIViewController {
          
          */
         
-//        imageTest.setFAIconWithName(icon: FAType.FAPhone, textColor: UIColor.blue, backgroundColor: UIColor.clear)
-//        
-//        testLabel.FAIcon = FAType.FAGithub
-//        
-//        testLabel.setFAIcon(icon: FAType.FAGithub, iconSize: 15)
-//        //testLabel.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
-//        
-//        testLabel.setFAText(prefixText: "follow me on ", icon: FAType.FAGlobe, postfixText: ". Thanks!", size: 50)
-//
-//        
-//        // bigger icon:
-////        testLabel.setFAText(prefixText: "follow me on  ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 5, iconSize: 6)
-//        testLabel.setFAColor(color: UIColor(red: 102/255, green: 102/255, blue: 255/255, alpha: 1))
+        //        imageTest.setFAIconWithName(icon: FAType.FAPhone, textColor: UIColor.blue, backgroundColor: UIColor.clear)
+        //
+        //        testLabel.FAIcon = FAType.FAGithub
+        //
+        //        testLabel.setFAIcon(icon: FAType.FAGithub, iconSize: 15)
+        //        //testLabel.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
+        //
+        //        testLabel.setFAText(prefixText: "follow me on ", icon: FAType.FAGlobe, postfixText: ". Thanks!", size: 50)
+        //
+        //
+        //        // bigger icon:
+        ////        testLabel.setFAText(prefixText: "follow me on  ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 5, iconSize: 6)
+        //        testLabel.setFAColor(color: UIColor(red: 102/255, green: 102/255, blue: 255/255, alpha: 1))
         
         
     }
+    @IBAction func sendButtonAction(_ sender: Any) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+        
+    }
+    
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        //mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        
+        
+        ////////!!!!!REMOVE OPTIONAL
+        mailComposerVC.setSubject("\(nameLabel.text)'s business card")
+        mailComposerVC.setMessageBody("It was a pleasure to have met you! \n Please find my business card attached to this email.\n \n Best regards, \n \(nameLabel.text)", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
