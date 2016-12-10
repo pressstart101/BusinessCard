@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Font_Awesome_Swift
 
 class FormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cameraButtonLabel: SimpleButton!
@@ -21,10 +22,10 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     
-    let backgroundColor = UIColor(red: 179/255, green: 204/255, blue: 230/255, alpha: 1)
-    let borderColor = UIColor(red: 140/255, green: 177/255, blue: 217/255, alpha: 1)
-    let backgroundColorPressed = UIColor(red: 121/255, green: 164/255, blue: 210/255, alpha: 1)
-    let borderColorPressed = UIColor(red: 64/255, green: 125/255, blue: 191/255, alpha: 1)
+    let backgroundColor = UIColor(red: 180/255, green: 204/255, blue: 255/255, alpha: 1)
+    let borderColor = UIColor(red: 160/255, green: 177/255, blue: 217/255, alpha: 1)
+    let backgroundColorPressed = UIColor(red: 102/255, green: 150/255, blue: 255/255, alpha: 1)
+    let borderColorPressed = UIColor(red: 80/255, green: 120/255, blue: 255/255, alpha: 1)
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,7 +57,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         cameraButtonLabel.setBackgroundColor(backgroundColor, for: .normal)
         cameraButtonLabel.setBorderColor(borderColor)
         cameraButtonLabel.setBorderWidth(1.5, for: .normal, animated: true, animationDuration: 0.2)
-        cameraButtonLabel.setBorderWidth(3.0, for: .highlighted, animated: false)
+        cameraButtonLabel.setBorderWidth(2.0, for: .highlighted, animated: false)
 
         cameraButtonLabel.setShadowColor(UIColor.gray)
         cameraButtonLabel.setShadowRadius(5.0)
@@ -74,7 +75,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         libraryButtonLabel.setBackgroundColor(backgroundColor)
         libraryButtonLabel.setBorderColor(borderColor)
         libraryButtonLabel.setBorderWidth(1.5, for: .normal, animated: true, animationDuration: 0.2)
-        libraryButtonLabel.setBorderWidth(3.0, for: .highlighted, animated: false)
+        libraryButtonLabel.setBorderWidth(2.0, for: .highlighted, animated: false)
         
         libraryButtonLabel.setShadowColor(UIColor.gray)
         libraryButtonLabel.setShadowRadius(5.0)
@@ -92,7 +93,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         doneButtonLabel.setBackgroundColor(backgroundColor)
         doneButtonLabel.setBorderColor(borderColor)
         doneButtonLabel.setBorderWidth(2.5, for: .normal, animated: true, animationDuration: 0.5)
-        doneButtonLabel.setBorderWidth(4.5, for: .highlighted, animated: false)
+        doneButtonLabel.setBorderWidth(3.5, for: .highlighted, animated: false)
         doneButtonLabel.setCornerRadius(doneButtonLabel.frame.size.height/2)
         
         doneButtonLabel.setShadowColor(UIColor.gray)

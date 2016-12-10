@@ -7,4 +7,5 @@ target 'BusinessCard' do
 
   # Pods for BusinessCard
 pod 'IQKeyboardManagerSwift'
+pod 'Font-Awesome-Swift'
 end

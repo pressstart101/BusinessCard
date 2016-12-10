@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88C95239C64FD82E12549A3DB76DE7EB"
-               BuildableName = "Pods_BusinessCard.framework"
-               BlueprintName = "Pods-BusinessCard"
+               BlueprintIdentifier = "BA453546C51032641C49CACBC22725EE"
+               BuildableName = "Font_Awesome_Swift.framework"
+               BlueprintName = "Font-Awesome-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "88C95239C64FD82E12549A3DB76DE7EB"
-            BuildableName = "Pods_BusinessCard.framework"
-            BlueprintName = "Pods-BusinessCard"
+            BlueprintIdentifier = "BA453546C51032641C49CACBC22725EE"
+            BuildableName = "Font_Awesome_Swift.framework"
+            BlueprintName = "Font-Awesome-Swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
