@@ -9,6 +9,7 @@
 import UIKit
 import Font_Awesome_Swift
 class FormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
+
     @IBOutlet weak var cameraButtonLabel: SimpleButton!
     @IBOutlet weak var libraryButtonLabel: SimpleButton!
     @IBOutlet weak var doneButtonLabel: SimpleButton!
@@ -206,7 +207,7 @@ var alertText:UITextField!
     
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let maxLength = 75
+        let maxLength = 70
         let currentString: NSString = noteToSaveLabel.text as NSString
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: text) as NSString

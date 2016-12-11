@@ -12,6 +12,7 @@ import Font_Awesome_Swift
 import MessageUI
 
 class BusinessCardViewController: UIViewController, MFMailComposeViewControllerDelegate {
+
     @IBOutlet weak var profilePicLabel: UIImageView!
     var thePic = UIImage()
     
@@ -33,6 +34,9 @@ class BusinessCardViewController: UIViewController, MFMailComposeViewControllerD
     var noteText = String()
     var nameText = String()
     var imageCaptured = UIImage()
+    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBusinessCardView()
@@ -60,6 +64,8 @@ class BusinessCardViewController: UIViewController, MFMailComposeViewControllerD
         
         
     }
+    
+    
     
     func setUpBusinessCardView(){
         profilePicLabel.clipsToBounds = true;
