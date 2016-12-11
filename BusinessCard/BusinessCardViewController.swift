@@ -78,7 +78,14 @@ class BusinessCardViewController: UIViewController, MFMailComposeViewControllerD
         phoneLabel.font = UIFont.small()
         websiteLabel.font = UIFont.small()
         noteLabel.font = UIFont.thin()
+        let nameTemp = nameLabel.text
+        if let unwrappedName = nameTemp{
+        if unwrappedName.characters.count < 12{
         nameLabel.font = UIFont.extraLarge()
+        }else{
+        nameLabel.font = UIFont.extraLargeReduces()
+        }
+        }
         
         
         sendLabel.setBorderColor(Colors.borderColorPressed, for: .highlighted)
@@ -111,31 +118,15 @@ class BusinessCardViewController: UIViewController, MFMailComposeViewControllerD
         phoneLabel.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 0.5)
         websiteLabel.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 0.5)
 
-        /*
-         FAType.FAPhone
-         FAType.FATwitter
-         FAType.FAChrome
-         FAType.FADesktop
-         FAType.FAGlobe
-         FAType.FACommentO
-         FAType.FAEnvelopeO
-         
-         */
+        noteLabel.lineBreakMode = .byWordWrapping // or NSLineBreakMode.ByWordWrapping
+        noteLabel.numberOfLines = 0
         
-        //        imageTest.setFAIconWithName(icon: FAType.FAPhone, textColor: UIColor.blue, backgroundColor: UIColor.clear)
-        //
-        //        testLabel.FAIcon = FAType.FAGithub
-        //
-        //        testLabel.setFAIcon(icon: FAType.FAGithub, iconSize: 15)
-        //        //testLabel.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
-        //
-        //        testLabel.setFAText(prefixText: "follow me on ", icon: FAType.FAGlobe, postfixText: ". Thanks!", size: 50)
-        //
-        //
-        //        // bigger icon:
-        ////        testLabel.setFAText(prefixText: "follow me on  ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 5, iconSize: 6)
-        //        testLabel.setFAColor(color: UIColor(red: 102/255, green: 102/255, blue: 255/255, alpha: 1))
-        
+        let tempNote = noteLabel.text
+        if let unwrapped = tempNote{
+            if (unwrapped.isEmpty){
+                    noteImg.isHidden = true
+            }
+        }
         
     }
     @IBAction func sendButtonAction(_ sender: Any) {
@@ -154,9 +145,7 @@ class BusinessCardViewController: UIViewController, MFMailComposeViewControllerD
     }
     
     
-//    func UIGraphicsBeginImageContextWithOptions(_ size: CGSize,
-//                                                _ opaque: Bool,
-//                                                _ scale: CGFloat)
+
     func captureScreen() {
         
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 375, height: 507), false, 0);

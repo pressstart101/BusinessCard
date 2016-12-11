@@ -8,7 +8,7 @@
 
 import UIKit
 import Font_Awesome_Swift
-class FormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     @IBOutlet weak var cameraButtonLabel: SimpleButton!
     @IBOutlet weak var libraryButtonLabel: SimpleButton!
     @IBOutlet weak var doneButtonLabel: SimpleButton!
@@ -18,14 +18,14 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var phoneToSaveLabel: UITextField!
     @IBOutlet weak var websiteToSaveLabel: UITextField!
     @IBOutlet weak var noteToSaveLabel: UITextView!
-    @IBOutlet weak var uploadPictureLabel: UILabel!
+    //@IBOutlet weak var uploadPictureLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     
     
     @IBOutlet weak var upLabel: SimpleButton!
     
-
-
+var alertText:UITextField!
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,19 +39,26 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        noteToSaveLabel.delegate = self
         setUpFormView()
         phoneToSaveLabel.addTarget(self, action: #selector(textField(_:shouldChangeCharactersIn:replacementString:)), for: .editingChanged)
+
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        upLabel.isHidden = false
+        upLabel.isHidden = true
         cameraButtonLabel.isHidden = true
         libraryButtonLabel.isHidden = true
     }
 
     func setUpFormView(){
+        
         self.hideKeyboardWhenTappedAround()
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
+        picToSave.isUserInteractionEnabled = true
+        picToSave.addGestureRecognizer(tapGestureRecognizer)
+        
         
         cameraButtonLabel.isHidden = true
         libraryButtonLabel.isHidden = true
@@ -140,7 +147,7 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         
         
-        uploadPictureLabel.font = UIFont.medium()
+        //uploadPictureLabel.font = UIFont.medium()
         noteToSaveLabel.font = UIFont.small()
         noteLabel.font = UIFont.medium()
         nameToSaveLabel.font = UIFont.small()
@@ -178,11 +185,17 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         picToSave.image = image
         self.dismiss(animated: true, completion: nil);
-        let imageData = UIImageJPEGRepresentation(picToSave.image!, 0.6)
-        let compressedJPEGImage = UIImage(data: imageData!)
-        UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
+       // let imageData = UIImageJPEGRepresentation(picToSave.image!, 0.6)
+       // let compressedJPEGImage = UIImage(data: imageData!)
+       // UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
     }
     
+    
+    func imageTapped(img: AnyObject){
+        cameraButtonLabel.isHidden = false
+        libraryButtonLabel.isHidden = false
+    
+    }
     
     @IBAction func doneButtonAction(_ sender: SimpleButton) {
 //        let imageData = UIImageJPEGRepresentation(picToSave.image!, 0.6)
@@ -190,6 +203,20 @@ class FormViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 //        UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
         ///!!!add not to save placeholder to gallery
     }
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let maxLength = 75
+        let currentString: NSString = noteToSaveLabel.text as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: text) as NSString
+        return newString.length <= maxLength
+    }
+    
+
+    
+
+    
     
     ///////////////////////////////////////////////////////////
     

@@ -73,6 +73,10 @@ extension UIFont {
     class func extraLarge() -> UIFont {
         return UIFont(name: "PingFangSC-Semibold", size: 45)!
     }
+    
+    class func extraLargeReduces() -> UIFont {
+        return UIFont(name: "PingFangSC-Semibold", size: 30)!
+    }
 }
 
 
