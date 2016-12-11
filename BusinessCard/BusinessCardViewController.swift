@@ -32,8 +32,7 @@ class BusinessCardViewController: UIViewController, MFMailComposeViewControllerD
     var websiteText = String()
     var noteText = String()
     var nameText = String()
-
-    
+    var imageCaptured = UIImage()
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBusinessCardView()
@@ -140,12 +139,31 @@ class BusinessCardViewController: UIViewController, MFMailComposeViewControllerD
         
     }
     @IBAction func sendButtonAction(_ sender: Any) {
+        
+        
+        captureScreen()
+        
+        
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
         }
+        
+    }
+    
+    
+//    func UIGraphicsBeginImageContextWithOptions(_ size: CGSize,
+//                                                _ opaque: Bool,
+//                                                _ scale: CGFloat)
+    func captureScreen() {
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 375, height: 507), false, 0);
+        self.view.drawHierarchy(in: CGRect(x: 0, y: -65, width: view.bounds.size.width,height: view.bounds.size.height), afterScreenUpdates: true)
+        imageCaptured = UIGraphicsGetImageFromCurrentImageContext()!;
+        UIImageWriteToSavedPhotosAlbum(imageCaptured, nil, nil, nil)
+        UIGraphicsEndImageContext()
         
     }
     
@@ -157,10 +175,23 @@ class BusinessCardViewController: UIViewController, MFMailComposeViewControllerD
         //mailComposerVC.setToRecipients(["someone@somewhere.com"])
         
         
-        ////////!!!!!REMOVE OPTIONAL
-        mailComposerVC.setSubject("\(nameLabel.text)'s business card")
-        mailComposerVC.setMessageBody("It was a pleasure to have met you! \n Please find my business card attached to this email.\n \n Best regards, \n \(nameLabel.text)", isHTML: false)
-        
+
+        let name = nameLabel.text
+        if name == ""{
+            mailComposerVC.setSubject("Business card")
+            mailComposerVC.setMessageBody("It was a pleasure to have met you! \n Please find my business card attached to this email.\n \n Best regards \n ", isHTML: false)
+        }else if let unwrappedName = name {
+            mailComposerVC.setSubject("\(unwrappedName)'s business card")
+            mailComposerVC.setMessageBody("It was a pleasure to have met you! \n Please find my business card attached to this email.\n \n Best regards, \n \(unwrappedName)", isHTML: false)
+
+        }else{
+            print("Did not autofill email")
+        }
+//        mailComposerVC.setSubject("\(nameLabel.text)'s business card")
+//        mailComposerVC.setMessageBody("It was a pleasure to have met you! \n Please find my business card attached to this email.\n \n Best regards, \n \(nameLabel.text)", isHTML: false)
+        let imageData = UIImagePNGRepresentation(imageCaptured) as NSData?
+        mailComposerVC.addAttachmentData(imageData as! Data, mimeType: "image/jpeg", fileName: "Business Card")
+
         return mailComposerVC
     }
     
